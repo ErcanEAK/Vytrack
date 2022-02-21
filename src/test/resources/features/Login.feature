@@ -1,31 +1,7 @@
 @FLTAPS-979
 Feature: Default
 
-	#{color:#ff0000}*User Story :* {color}
-	#
-	#As a user, I should be able to log in
-	#
-	# 
-	#
-	#{color:#57d9a3}*_Acceptance Criteria:_*{color}
-	#
-	#{*}1{*}-{_}*All users can log in with valid credentials (We have 3 types of users such as sales manager, store manager, truck driver).*{_}
-	#     _*- Driver should land on the "Quick Launchpad" page after successful login*_
-	#     _*- Sales Manager/ Store Manager should land on the "Dashboard" page after successful login*_
-	#
-	#{*}2{*}-"Invalid username or password." should be displayed for invalid (valid username-invalid password and invalid username-valid password) credentials
-	#
-	#{*}3{*}- "Please fill out this field" message should be displayed if the password or username is empty
-	#
-	#{*}4{*}-User land on the ‘Forgot Password’ page after clicking on the "Forgot your password?" link
-	#
-	#{*}5{*}-User can see "Remember Me" link exists and is clickable on the login page
-	#
-	#{*}6{*}-User should see the password in bullet signs by default
-	#
-	#{*}7{*}- Verify if the ‘Enter’ key of the keyboard is working correctly on the login page.
-	#
-	#*8-* All users can see their own usernames in the profile menu, after successful login
+
 	@FLTAPS-968 @FLTAPS-980
 	Scenario Outline: Login Function With Valid Credentials
 		Given the user is on the login page

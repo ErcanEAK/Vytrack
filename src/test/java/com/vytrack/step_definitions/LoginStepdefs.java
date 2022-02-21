@@ -1,5 +1,6 @@
 package com.vytrack.step_definitions;
 
+
 import com.vytrack.pages.LoginPage;
 import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
@@ -9,9 +10,13 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 public class LoginStepdefs {
     LoginPage loginPage= new LoginPage();
+
 
      @Given("the user is on the login page")
     public void theUserIsOnTheLoginPage() {
@@ -83,5 +88,45 @@ public class LoginStepdefs {
     public void verifyPasswordInputBulletSign() {
 
          Assert.assertTrue(loginPage.password.getAttribute("type").equals("password"));
+    }
+
+    @When("user click the tab close button")
+    public void userClickTheTabCloseButton() {
+
+         Driver.get().findElement(By.linkText("Logout")).click();
+    }
+
+    @Then("user should open browser")
+    public void userShouldOpenBrowser() {
+        Driver.get().get(ConfigurationReader.get("url"));
+    }
+
+    @Then("account should be closed")
+    public void accountShouldBeClosed() {
+
+         Assert.assertEquals("Login",Driver.get().getTitle());
+    }
+
+    @When("user click the logout button")
+    public void userClickTheLogoutButton() {
+        Driver.get().findElement(By.linkText("Logout")).click();
+    }
+
+    @Then("verify page title should be Login")
+    public void verifyPageTitleShouldBeLogin() {
+
+        Assert.assertEquals("Login",Driver.get().getTitle());
+    }
+
+    @Then("Click step Back button")
+    public void clickStepBackButton() {
+        Driver.get().navigate().back();
+
+    }
+
+    @Then("Verify user not be able to Home page {string}")
+    public void verifyUserNotBeAbleToHomePage(String Page) {
+
+         Assert.assertEquals(Page,Driver.get().getTitle());
     }
 }
